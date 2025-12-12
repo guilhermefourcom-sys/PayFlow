@@ -1,16 +1,25 @@
 # Pay Flow API
 
+## Arquitetura
 Este projeto adotou o padrão de arquitetura DDD pelos seguintes motivos:
 
 - Baixo acoplamento. Em uma eventual necessidade de troca de frameworks, o dominio da aplicação pode ser reutilizado facilmente
 - Escalabilidade. É um padrão de projeto que permite escalabilidade de acordo com o crescimento da demanda
 - Facil implementação. O Projeto é simples de dar manutenção e de criar novas funcionalidades, apenas incluindo novos endpoints e novos serviços sem a necessidade de alterações drásticas no core do sistema
 
+## ORM
+
+Este projeto utiliza o Entity Framework como ORM, uma vez que o mesmo facilita as atividades padrão de CRUD no banco de dados, aumentando a performance na criação de novas features na aplicação
+
+## Banco de dados
+
+Este projeto utiliza o banco de dados SQL Server como seu banco padrão
+
 ## Configurações
 
 Este projeto esta configurado para rodar tanto via debug atraves da IDE de sua preferencia, quanto via docker compose.
-O unico ajuste manual necessário é alterar a string de conexão que encontra-se dentro do arquivo appsettings.json e no arquivo DesignTimeDbContextFactory dentro do projeto PayFlow.Infra.
-Após inserir uma string de conexão para um banco sql server, basta dar o play na solução, ou caso queira rodar via docker compose, basta abrir o terminal na pasta onde encontra-se o arquivo docker-compose.yml no projeto PayFlow.API e rodar o seguinte comando:
+O unico ajuste manual necessário é alterar a string de conexão que encontra-se dentro do arquivo appsettings.json no projeto PayFlow.API e no arquivo DesignTimeDbContextFactory dentro do projeto PayFlow.Infra.
+Após inserir uma string de conexão valida para um banco sql server, basta dar o play na solução, ou caso queira rodar via docker compose, basta abrir o terminal na pasta onde encontra-se o arquivo docker-compose.yml no projeto PayFlow.API e rodar o seguinte comando:
 ```console
 docker compose up --build -d
 ```
