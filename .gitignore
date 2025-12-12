@@ -1,0 +1,85 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio temporary files, build results, and user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.userprefs
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+
+# Microsoft Azure Web App publish settings
+PublishProfiles/
+
+# Test results
+TestResults/
+coverage*
+*.coverage
+*.coveragexml
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# dotnet watch
+.dotnet_watch
+
+# Rider caches and logs
+.idea/
+*.sln.iml
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets
+.env
+.env.*
+secrets.json
+
+# Resharper
+_ReSharper*/
+*.ReSharper*/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Sensitive files
+*.pfx
+
+# Misc
+node_modules/
+
+# Ignore publish output folder if present
+publish/
+
+# Ignore analyzers cache
+.analysers
+
+# Ensure git keeps the .gitignore file
+!.gitignore

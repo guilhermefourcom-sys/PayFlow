@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  migrator:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    working_dir: /src
+    volumes:
+      - ..:/src:delegated
+      - migration_data:/migration
+    command: sh -c "dotnet restore ./PayFlow.Api/PayFlow.Api.csproj && dotnet tool restore || true && dotnet ef database update --project ./PayFlow.Infra/ --startup-project ./PayFlow.Api/ && touch /migration/done"
+
+  payflow.api:
+    image: payflow.api:latest
+    build:
+      context: ..
+      dockerfile: PayFlow.Api/Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      ASPNETCORE_URLS: "http://+:80"
+      ASPNETCORE_ENVIRONMENT: Development
+    restart: unless-stopped
+    volumes:
+      - migration_data:/migration
+    command: sh -c "while [ ! -f /migration/done ]; do echo 'Waiting for migrations...'; sleep 1; done; dotnet PayFlow.Api.dll"
+
+volumes:
+  migration_data: {}
