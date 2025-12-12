@@ -23,6 +23,11 @@ Após inserir uma string de conexão valida para um banco sql server, basta dar 
 ```console
 docker compose up --build -d
 ```
+Quando quiser parar, basta executar o comando:
+
+```console
+docker compose down
+```
 
 OBS: Para rodar a aplicação via docker compose é necessário ter o docker e o docker compose previamente instalado em seu ambiente
 
@@ -33,4 +38,6 @@ Caso o comando funcione, deve ser exibido um retorno parecido com o abaixo em se
 ` ✔ payflow.api:latest                  Built   `                                                                                                           
 ` ✔ Container payflowapi-payflow.api-1  Started `                                                                                                           
 ` ✔ Container payflowapi-migrator-1     Started `
+
+Após isso, basta acessar a URL http://localhost:8080/swagger que irá ter acesso ao swagger para verificar se as APIs estão de acordo com o esperado.
 
